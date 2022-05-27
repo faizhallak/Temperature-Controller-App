@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+       <h1>LOGO</h1>
+        <menu>
+            <li>
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="About">About</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Contact">Contact</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Projects">Projects</a>
+            </li>
+        </menu>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        @DateTime.Now.ToShortDateString(); Faiz
+    </footer>
+</body>
+</html>
