@@ -1,20 +1,21 @@
-namespace WebApplication.Models
-{
-    public class FeverCheck
-    {
-        public static string WriteMessage()
-        {
-            return "Please enter your temperature: ";
-        }
 
-        public static string Check(int temp)
-        {
-            if (temp >= 38)
-                return "You have a fever.";
-            else if (temp <= 35)
-                return "You have Hypothermia";
-            else
-                return "You don't have a fever.";
-        }
-    }
+@{
+    ViewData["Title"] = "View";
 }
+
+@if (ViewBag.Message != null)
+{
+    <h1>@ViewBag.Message</h1>
+}
+
+@if (ViewBag.Info != null)
+{
+    <h1>@ViewBag.Info</h1>
+}
+
+<form asp-controller="Doctor" asp-action="FeverCheck" method="post">
+<label>Temperature: </label>
+<input type="number" step=any name="temp" />
+<input type="submit" value="Submit" />
+</form>
+
