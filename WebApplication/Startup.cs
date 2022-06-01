@@ -17,6 +17,14 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(5);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,8 +39,15 @@ namespace WebApplication
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "guessinggame",
+                    pattern: "GuessingGame",
+                    defaults: new { controller = "Game", action = "GuessingGame" }
+                    );
                 endpoints.MapControllerRoute(
                     name: "fevercheck",
                     pattern: "FeverCheck",
