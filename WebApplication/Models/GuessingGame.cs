@@ -1,3 +1,4 @@
+using System;
 namespace WebApplication.Models
 {
     public class GuessingGame
@@ -6,14 +7,21 @@ namespace WebApplication.Models
         {
             return "Please enter your guess between 1 and 100: ";
         }
-        public static string GuessGame(int guess, int randomNumber)
+
+        public static string GuessNumber(int guess, int rndNr)
         {
-            if (guess > randomNumber)
+                if (guess > rndNr)
+                {
                 return "Your guess is too high";
-            else if (guess < randomNumber)
+                }
+                else if (guess < rndNr)
+                {
                 return "Your guess is too low";
-            else
+                }
+                else
+
                 return "You have guessed the right number!";
+            
         }
     }
 }

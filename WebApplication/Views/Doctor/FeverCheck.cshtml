@@ -1,16 +1,16 @@
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "FeverCheck";
 }
 
 @if (ViewBag.Message != null)
 {
-    <h1>@ViewBag.Message</h1>
+    <h3>@ViewBag.Message</h3>
 }
 
 @if (ViewBag.Info != null)
 {
-    <h1>@ViewBag.Info</h1>
+    <h3>@ViewBag.Info</h3>
 }
 
 <form asp-controller="Doctor" asp-action="FeverCheck" method="post">
